@@ -352,3 +352,8 @@ justify-content: space-around;
   color: #fea116;
   text-align: center;
 }
+
+.inside-text,a{
+  text-decoration: none;
+  color: white;
+}
