@@ -8,13 +8,13 @@ function scrollFunction() {
   }
 }
 
-document.getElementById("my-svg").addEventListener("click", function() {
-  var currentColor = this.style.fill;
-  if (currentColor === "white") {
-    this.style.fill = "orange";
-  } else {
-    this.style.fill = "white";
-  }
-});
+// document.getElementById("my-svg").addEventListener("click", function() {
+//   var currentColor = this.style.fill;
+//   if (currentColor === "white") {
+//     this.style.fill = "orange";
+//   } else {
+//     this.style.fill = "white";
+//   }
+// });
 
 
