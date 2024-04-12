@@ -8,39 +8,39 @@
     <link rel="stylesheet" href="./css/menu.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="container">
-        <div class="overlay"></div>
+    <div class="new">
+      <div class="wrapper">
+        <div class="container">
+          <div class="overlay"></div>
+        </div>
+
+        <div class="text-upper">Our Menu</div>
+        <div class="nav-bar">
+          <ul>
+            <div class="logo">
+              <img id="logo-photo" src="./images/utensil.png" alt="utensils" />
+              <h2 class="resturant-name">College Bites</h2>
+            </div>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="aboutus.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICE</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="login_page.html" id="LOG">LOGIN</a></li>
+            <!-- <li class="tablebooking"><a href="#Book A Table">BOOK A TABLE</a></li> -->
+            <a href="booktable.html"
+              ><button class="booking-btn">BOOK A TABLE</button></a
+            >
+          </ul>
+        </div>
       </div>
 
-      <div class="text-upper">Our Menu</div>
-      <div class="nav-bar">
-        <ul>
-          <div class="logo">
-            <img id="logo-photo" src="./images/utensil.png" alt="utensils" />
-            <h2 class="resturant-name">College Bites</h2>
-          </div>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="aboutus.html">ABOUT</a></li>
-          <li><a href="services.html">SERVICE</a></li>
-          <li><a href="menu.html">MENU</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="login_page.html" id="LOG">LOGIN</a></li>
-          <!-- <li class="tablebooking"><a href="#Book A Table">BOOK A TABLE</a></li> -->
-          <a href="booktable.html"
-            ><button class="booking-btn">BOOK A TABLE</button></a
-          >
-        </ul>
+      <div class="main-section">
+        <!-- <div class="heading1">Menu</div> -->
+        <div class="menu-bar"></div>
+        <!-- </div> -->
       </div>
     </div>
-
-    <div class="main-section">
-      <!-- <div class="heading1">Menu</div> -->
-      <div class="menu-bar">
-         </div> 
-      <!-- </div> -->
-    </div>
-
     <script>
       function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -64,7 +64,6 @@
       window.addEventListener("scroll", handleScroll);
       handleScroll();
     </script>
-
     <script src="./JS/menu.js"></script>
     <script src="./JS/menuItem.js"></script>
     <script src="/JS/menuDynamic.js"></script>

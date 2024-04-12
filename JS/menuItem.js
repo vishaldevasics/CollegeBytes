@@ -7,7 +7,7 @@ let item=[
       original_price: 320,
       rating: {
           stars: 4.5,
-          count: 1400,
+          count: 140,
       },
   },
   

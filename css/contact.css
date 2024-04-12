@@ -6,6 +6,7 @@
 *{
     margin: 0;padding: 0;
 }
+
 .wrapper {
   height: 350px;
     width: 100%;
@@ -17,6 +18,8 @@
   }
  
   .container {
+    
+    overflow-y: hidden; /* Hide horizontal scrollbar */
     overflow-x: hidden;
     position: absolute;
     width: 100%;
