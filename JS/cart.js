@@ -1,8 +1,9 @@
 const CONVENIENCE_FEES = 99;
 let bagItemObjects = [];
 onLoad();
-
 function onLoad(){
+    
+    bagItems = JSON.parse(localStorage.getItem('bagItems')) || [];
     loadBagItemObjects();
     displayBagItems();
     displayBagSummary();
@@ -17,8 +18,8 @@ function displayBagSummary(){
     let finalPayment = 0;
     bagItemObjects.forEach(bagItem => {
         totalMRP += bagItem.original_price;
-        totalDiscount += bagItem.original_price - bagItem.current_price;
-        finalPayment += bagItem.current_price;
+        totalDiscount += 0;
+        finalPayment += bagItem.original_price;
     });
     if(finalPayment != 0) finalPayment += CONVENIENCE_FEES;
 
@@ -36,7 +37,7 @@ function displayBagSummary(){
             <span class="price-item-value priceDetail-base-discount">-₹ ${totalDiscount}</span>
         </div>
         <div class="price-item">
-            <span class="price-item-tag">Convenience Fee</span>
+            <span class="price-item-tag">Delivery Charge</span>
             <span class="price-item-value">₹ 99</span>
         </div>
         <hr>
@@ -45,36 +46,42 @@ function displayBagSummary(){
             <span class="price-item-value">₹ ${finalPayment}</span>
         </div>
         </div>
-        <button class="btn-place-order">
-        <div class="css-xjhrni">PLACE ORDER</div>
-        </button>
+        <a href="https://buy.stripe.com/test_28ocOW0bI5OIc9O8ww">
+            <button class="btn-place-order" >
+            <div class="css-xjhrni">PLACE ORDER</div>
+        </button></a>
     </div>`
 }
 
+
+
 function loadBagItemObjects(){
-    bagItemObjects = bagItems.map(itemId => {
-        for(let i = 0;i<items.length;i++){
-            if(itemId == items[i].id){
-                return items[i];
+    console.log("onload load bagItems working");
+    bagItemObjects = [];
+    for(let j = 0;j<bagItems.length;j++){
+        for(let i = 0;i<item.length;i++){
+            if(bagItems[j] == item[i].id){
+                bagItemObjects.push(item[i]);
+                break;
             }
         }
-    });
-    console.log(bagItemObjects);
+    }
 }
-
-function displayBagItems(){
+console.log(bagItemObjects);
+function displayBagItems(){    
     let containerElement = document.querySelector('.bag-items-container');
     let innerHtml = ``;
-    bagItemObjects.forEach(bagItem=>{
-        innerHtml += generateItem(bagItem);
+    bagItemObjects.forEach(Item=>{
+        innerHtml += generateItem(Item);
     })
     containerElement.innerHTML = innerHtml;
 }
 
 function removeFromBag(itemId){
+    let containerElement = document.querySelector('.bag-items-container');
     bagItems = bagItems.filter(bagItemId => bagItemId != itemId);
+    console.log(bagItems);
     localStorage.setItem('bagItems',JSON.stringify(bagItems));
-    displayBagIcon();
     onLoad();
 }
 
@@ -82,22 +89,16 @@ function generateItem(item){
     return `
     <div class="bag-item-container">
         <div class="item-left-part">
-            <img class="bag-item-img" src="../${item.image}">
+            <img class="bag-item-img" src="${item.image}">
         </div>
         <div class="item-right-part">
-            <div class="company">${item.company}</div>
             <div class="item-name">${item.item_name}</div>
             <div class="price-container">
-            <span class="current-price">₹ ${item.current_price}</span>
             <span class="original-price">₹ ${item.original_price}</span>
-            <span class="discount-percentage">(${item.discount_percentage}% OFF)</span>
-            </div>
-            <div class="return-period">
-            <span class="return-period-days">${item.return_period} days</span> return available
             </div>
             <div class="delivery-details">
             Delivery by
-            <span class="delivery-details-days">${item.delivery_date}</span>
+            <span class="delivery-details-days">10 PM</span>
             </div>
         </div>
 
