@@ -237,4 +237,17 @@
     background-color: white;
     color: #fea116;
   }
+
+  #save_btn{
+    border-radius: 0%;
+    color: white;
+    background-color: #fea116;
+    padding: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    
+
+  }
   
