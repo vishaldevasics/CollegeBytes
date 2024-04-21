@@ -25,7 +25,7 @@
                 <li><a href="aboutus.html">ABOUT</a></li>
                 <li><a href="services.html">SERVICE</a></li>
                 <li><a href="menu.html">MENU</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="contact.html"> 🛒 CART</a></li>
                 <li><a href="login_page.html" id="LOG">LOGIN</a></li>
                 <a href="booktable.html"><button class="booking-btn">BOOK A TABLE</button></a>
                 
@@ -59,7 +59,9 @@
           <label for="guestNumber">Guest Number:</label><br>
           <input type="number" id="guestNumber" name="guestNumber" min="1" value="1"><br>
         
-          <input type="submit" value="Submit">
+          <input type="button" onclick="savedata()
+          alert('Thank you for your response ! we will get you shortly');
+          " id="save_btn" value="Submit">
         </form>
             </div>
 
@@ -77,6 +79,37 @@ function scrollFunction() {
     document.querySelector('.nav-bar ul').style.backgroundColor = '#24232346'; 
   }
 }
+    let UserData = JSON.parse(localStorage.getItem('Data')) || [];
+    function savedata(){
+    let Fname,Lname,Email,PhoneNumber,ReservationDate,GuestNumber;
+    Fname = document.getElementById("firstName").value;
+    Lname =document.getElementById("lastName").value;
+    Email = document.getElementById("email").value;
+    PhoneNumber = document.getElementById("phone").value;
+    ReservationDate = document.getElementById("reservationDate").value;
+    GuestNumber = document.getElementById("guestNumber").value;
+    
+    
+
+    let user = {
+        FirstName : Fname,
+        LastName : Lname,
+        EmailAdd : Email,
+        Phone : PhoneNumber,
+        Reservation : ReservationDate,
+        GuesCount : GuestNumber,
+    }
+    UserData.push(user);
+    localStorage.setItem("Data" ,JSON.stringify(UserData));
+
+
+
+    
+
+
+
+    }
+
     </script>
 </body>
 </html>
